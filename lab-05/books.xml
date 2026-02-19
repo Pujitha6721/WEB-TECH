@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <id>1</id>
+        <title>CAN WE STRANGERS AGAIN</title>
+        <author>SHINDHYAL</author>
+        <status>Available</status>
+    </book>
+    <book>
+         <id>2</id>
+        <title>Rich Dad Poor Dad</title>
+        <author>Robert Kiyosaki</author>
+        <status>Available</status>
+    </book>
+</library>

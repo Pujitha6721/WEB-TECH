@@ -1,0 +1,16 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "peter",
+      "course": "CSE",
+      "marks": 90
+    },
+    {
+      "id": 2,
+      "name": "gresh",
+      "course": "ECE",
+      "marks": 95
+    }
+  ]
+}

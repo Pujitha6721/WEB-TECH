@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 101,
+      "name": "mobile phone",
+      "category": "Electronics",
+      "price": 70000,
+      "stock": 5
+    },
+    {
+      "id": 102,
+      "name": "Notebook",
+      "category": "Stationery",
+      "price": 50,
+      "stock": 100
+    },
+    {
+      "id": 103,
+      "name": "earpods",
+      "category": "Electronics",
+      "price": 2000,
+      "stock": 2
+    }
+  ]
+}
