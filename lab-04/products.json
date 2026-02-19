@@ -1,8 +1,0 @@
-[
-  { "id": 301, "name": "iQOO Neo 9 Pro", "price": 35999, "category": "Mobile" },
-  { "id": 302, "name": "Samsung Galaxy Tab S9", "price": 72999, "category": "Tablet" },
-  { "id": 303, "name": "HP Victus Gaming Laptop", "price": 84999, "category": "Laptop" },
-  { "id": 304, "name": "LG 50\" UHD Smart TV", "price": 47999, "category": "Television" },
-  { "id": 305, "name": "Sony WH-CH720N Headphones", "price": 9999, "category": "Audio" },
-  { "id": 306, "name": "Apple Watch SE (2nd Gen)", "price": 29999, "category": "Wearable" }
-]
