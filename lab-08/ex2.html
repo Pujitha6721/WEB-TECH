@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Profile – ES6 Features</title>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background: #f9fafb; color: #111827; min-height: 100vh; margin: 0; padding: 2rem; display: flex; justify-content: center; }
+    .container { width: 100%; max-width: 520px; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); overflow: hidden; }
+    .header { background: #1e40af; color: white; padding: 1.4rem 2rem; font-size: 1.35rem; font-weight: 600; text-align: center; }
+    .form-section { padding: 2rem; }
+    .form-row { margin-bottom: 1.4rem; }
+    label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 500; color: #374151; }
+    input, select { width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; }
+    input:focus, select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
+    .actions { display: flex; gap: 1rem; margin-top: 1.8rem; }
+    button { flex: 1; padding: 0.85rem; border: none; border-radius: 6px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+    .btn-primary { background: #3b82f6; color: white; }
+    .btn-primary:hover { background: #2563eb; }
+    .btn-secondary { background: #6b7280; color: white; }
+    .btn-secondary:hover { background: #4b5563; }
+    #output { margin: 0 2rem 2rem; padding: 1.5rem; background: #f3f4f6; border-radius: 8px; display: none; }
+    #output.show { display: block; }
+    .output-row { display: flex; justify-content: space-between; padding: 0.9rem 0; border-bottom: 1px solid #e5e7eb; }
+    .output-row:last-child { border-bottom: none; }
+    .output-label { font-weight: 500; color: #4b5563; }
+    .output-value { font-weight: 600; color: #1e40af; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">Student Profile (ES6 Demo)</div>
+
+  <div class="form-section">
+    <div class="form-row">
+      <label>Student ID</label>
+      <input type="number" id="id" placeholder="e.g. 101">
+    </div>
+    <div class="form-row">
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="e.g. Priya">
+    </div>
+    <div class="form-row">
+      <label>Department</label>
+      <select id="department">
+        <option value="">Select department</option>
+        <option>CSE</option>
+        <option>ECE</option>
+        <option>ME</option>
+        <option>CE</option>
+        <option>AI&DS</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label>Marks (out of 100)</label>
+      <input type="number" id="marks" min="0" max="100" placeholder="e.g. 92">
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" onclick="generateProfile()">Generate Profile</button>
+      <button class="btn-secondary" onclick="resetForm()">Reset</button>
+    </div>
+
+    <div id="output">
+      <div class="output-row"><span class="output-label">ID</span><span class="output-value" id="out-id"></span></div>
+      <div class="output-row"><span class="output-label">Name</span><span class="output-value" id="out-name"></span></div>
+      <div class="output-row"><span class="output-label">Department</span><span class="output-value" id="out-dept"></span></div>
+      <div class="output-row"><span class="output-label">Marks</span><span class="output-value" id="out-marks"></span></div>
+      <div class="output-row"><span class="output-label">Grade</span><span class="output-value" id="out-grade"></span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const getGrade = score => {
+  if (score >= 90) return 'A';
+  if (score >= 80) return 'B';
+  if (score >= 70) return 'C';
+  if (score >= 60) return 'D';
+  if (score >= 50) return 'E';
+  return 'F';
+};
+
+function generateProfile() {
+  const student = {
+    id: Number(document.getElementById('id').value) || 0,
+    name: document.getElementById('name').value.trim() || '—',
+    department: document.getElementById('department').value || '—',
+    marks: Number(document.getElementById('marks').value) || 0
+  };
+
+  const { id, name, department, marks } = student;
+  const updated = { ...student, grade: getGrade(marks) };
+
+  document.getElementById('out-id').textContent    = id;
+  document.getElementById('out-name').textContent  = name;
+  document.getElementById('out-dept').textContent  = department;
+  document.getElementById('out-marks').textContent = marks;
+  document.getElementById('out-grade').textContent = updated.grade;
+
+  document.getElementById('output').classList.add('show');
+}
+
+function resetForm() {
+  document.getElementById('id').value = '';
+  document.getElementById('name').value = '';
+  document.getElementById('department').value = '';
+  document.getElementById('marks').value = '';
+  document.getElementById('output').classList.remove('show');
+}
+</script>
+
+</body>
+</html>
