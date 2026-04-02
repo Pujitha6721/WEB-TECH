@@ -1,0 +1,111 @@
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 50px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 
+    0 25px 50px rgba(0,0,0,0.2),
+    0 0 0 1px rgba(255,255,255,0.3);
+  text-align: center;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-header {
+  margin-bottom: 40px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+}
+
+.initials {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.profile-header h1 {
+  font-size: 2.5rem;
+  color: #2d1b69;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.roll-number {
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.profile-details {
+  margin-bottom: 40px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 15px 0;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 15px;
+  border-left: 5px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+}
+
+.label {
+  font-weight: 600;
+  color: #2d1b69;
+  font-size: 1.1rem;
+}
+
+.value {
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.profile-footer {
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
