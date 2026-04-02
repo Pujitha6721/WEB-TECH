@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Course Enrollment System</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      width: 100%;
+      max-width: 480px;
+      overflow: hidden;
+    }
+    .header {
+      background: #3b82f6;
+      color: white;
+      padding: 1.6rem;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .content {
+      padding: 2rem 1.8rem;
+    }
+    .info {
+      background: #eff6ff;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-bottom: 1.8rem;
+      text-align: center;
+    }
+    .info h3 {
+      margin: 0 0 0.8rem;
+      color: #1d4ed8;
+    }
+    .info p {
+      margin: 0.4rem 0;
+      font-size: 1.1rem;
+    }
+    button {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+    .btn-enroll {
+      background: #10b981;
+      color: white;
+    }
+    .btn-enroll:hover { background: #059669; }
+    .btn-reset {
+      background: #ef4444;
+      color: white;
+    }
+    .btn-reset:hover { background: #dc2626; }
+    #message {
+      margin-top: 1.8rem;
+      padding: 1.2rem;
+      border-radius: 10px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-align: center;
+      display: none;
+    }
+    #message.success { background: #d1fae5; color: #065f46; }
+    #message.error   { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="header">Course Enrollment System</div>
+
+    <div class="content">
+      <div class="info" id="courseInfo">
+        <h3 id="courseName">Web Technologies</h3>
+        <p>Instructor: <strong>S Gopi Krishna</strong></p>
+        <p>Seats: <strong id="seats">25 / 25</strong></p>
+      </div>
+
+      <button class="btn-enroll" onclick="enrollStudent()">Enroll Now</button>
+      <button class="btn-reset" onclick="resetCourse()">Reset Course</button>
+
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <script>
+    class Course {
+      constructor(courseName, maxSeats = 25) {
+        this.courseName = courseName;
+        this.instructor = "S Gopi Krishna";   // fixed instructor name
+        this.maxSeats   = maxSeats;
+        this.enrolled   = 0;
+      }
+
+      getSeatsStatus() {
+        return `${this.maxSeats - this.enrolled} / ${this.maxSeats}`;
+      }
+
+      enroll() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {  // simulate server check
+            if (this.enrolled < this.maxSeats) {
+              this.enrolled++;
+              resolve("Enrollment Successful 🎉");
+            } else {
+              reject("Course Full 😔 No seats available");
+            }
+          }, 900);
+        });
+      }
+    }
+
+    // Initialize course with fixed instructor
+    let currentCourse = new Course("Web Technologies", 25);
+
+    // Update UI with course info
+    function updateUI() {
+      document.getElementById("courseName").textContent = currentCourse.courseName;
+      // instructor is now fixed → no need to update dynamically
+      document.getElementById("seats").textContent = currentCourse.getSeatsStatus();
+    }
+
+    // Show message
+    function showMessage(text, type = "success") {
+      const msgEl = document.getElementById("message");
+      msgEl.textContent = text;
+      msgEl.className = type === "success" ? "success" : "error";
+      msgEl.style.display = "block";
+      setTimeout(() => {
+        msgEl.style.display = "none";
+      }, 4000);
+    }
+
+    async function enrollStudent() {
+      try {
+        const result = await currentCourse.enroll();
+        showMessage(result, "success");
+      } catch (err) {
+        showMessage(err, "error");
+      }
+      updateUI();
+    }
+
+    function resetCourse() {
+      currentCourse = new Course("Web Technologies", 25);
+      updateUI();
+      document.getElementById("message").style.display = "none";
+    }
+
+    // Initial render
+    updateUI();
+  </script>
+
+</body>
+</html>
