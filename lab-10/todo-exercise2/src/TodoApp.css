@@ -1,0 +1,40 @@
+.todo-app {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+h1 { text-align: center; color: #333; margin-bottom: 30px; }
+
+.input-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.todo-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+.todo-input:focus { outline: none; border-color: #4dabf7; }
+
+.add-btn, .clear-btn {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-btn { background: #11998e; color: white; }
+.clear-btn { background: #ff6b6b; color: white; }

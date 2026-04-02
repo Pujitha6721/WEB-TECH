@@ -1,0 +1,57 @@
+.form-container {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+h2 { text-align: center; margin-bottom: 30px; }
+
+.user-form { display: flex; flex-direction: column; gap: 20px; }
+
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+
+label { font-weight: 600; }
+
+input {
+  padding: 15px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  background: rgba(255,255,255,0.95);
+}
+
+input.error {
+  border-color: #ff6b6b;
+  background: rgba(255,107,107,0.1);
+}
+
+.error-text {
+  color: #ff6b6b;
+  font-size: 14px;
+}
+
+button {
+  padding: 18px;
+  background: linear-gradient(45deg, #ff6b6b, #feca57);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.success-message {
+  background: rgba(46,125,50,0.9);
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+}
